@@ -1,22 +1,21 @@
-import React from 'react'
 import { reviews } from "../contants";
-import ReviewCard from './ReviewCard';
-
+import ReviewCard from "./ReviewCard";
 
 const CustomerReviews = () => {
   return (
-    <section className="max-container p-6">
-      <h3 className="font-palanquin text-center text-4xl font-bold">
-        What Our
-        <span className="text-coral-red"> Customers </span>
-        Say?
-      </h3>
+    <section className="max-container">
+      <p className="text-center font-body text-sm font-bold uppercase tracking-[0.28em] text-volt">
+        Wear reports
+      </p>
+      <h2 className="mt-4 text-center font-display text-4xl font-bold uppercase">
+        From the <span className="text-volt">desk</span>
+      </h2>
       <p className="m-auto mt-4 max-w-lg text-center info-text">
-        Hear genuine stories from our satisfied customers about their
-        exceptional experiences with us.
+        Notes from people who bought a pair, ran them, and came back — not
+        caption copy.
       </p>
 
-      <div className="mt-24 flex flex-1 justify-evenly items-center max-lg:flex-col gap-14">
+      <div className="mt-20 flex flex-1 items-stretch justify-evenly gap-8 max-lg:flex-col">
         {reviews.map((review, index) => (
           <ReviewCard
             key={index}

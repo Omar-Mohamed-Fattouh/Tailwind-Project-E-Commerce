@@ -1,0 +1,23 @@
+{
+  "name": "VELT Shoes",
+  "short_name": "VELT",
+  "description": "Independent shoehouse for running, court, trail, and daily pairs.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050605",
+  "theme_color": "#B6FF3C",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

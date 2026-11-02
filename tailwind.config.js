@@ -15,22 +15,24 @@ export default {
     },
     extend: {
       fontFamily: {
-        palanquin: ["Palanquin", "sans-serif"],
-        montserrat: ["Montserrat", "sans-serif"],
+        display: ["Syne", "sans-serif"],
+        body: ["Manrope", "sans-serif"],
       },
       colors: {
-        primary: "#ECEEFF",
-        "coral-red": "#FF6452",
+        ink: "#050605",
+        forest: "#0E1A12",
+        volt: "#B6FF3C",
+        moss: "#8AA388",
+        fog: "#E7F0E3",
         "slate-gray": "#6D6D6D",
-        "pale-blue": "#F5F6FF",
-        "white-400": "rgba(255, 255, 255, 0.80)",
+        "white-400": "rgba(231, 240, 227, 0.78)",
       },
       boxShadow: {
-        "3xl": "0 10px 40px rgba(0, 0, 0, 0.1)",
+        "3xl": "0 18px 50px rgba(182, 255, 60, 0.12)",
       },
       backgroundImage: {
-        hero: "url('assets/images/collection-background.svg')",
-        card: "url('assets/images/thumbnail-background.svg')",
+        hero: "radial-gradient(circle at 72% 38%, #1c3d22 0%, #050605 58%)",
+        card: "radial-gradient(circle at 50% 45%, #234528 0%, #0c120e 72%)",
       },
       screens: {
         wide: "1440px",

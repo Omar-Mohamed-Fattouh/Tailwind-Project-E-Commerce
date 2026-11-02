@@ -1,29 +1,29 @@
-import React from 'react'
-
 function ShoeCard({ imgURL, changeBigShoeImage, bigShoeImg }) {
-  const handleClick = () => {
-    if (bigShoeImg !== imgURL.bigShoe) {
-      changeBigShoeImage(imgURL.bigShoe);
-    }
-  };
+  const selected = bigShoeImg === imgURL.bigShoe;
+
   return (
-    <div
-      className={`border-2 rounded-xl ${
-        bigShoeImg === imgURL.bigShoe ? "border-coral-red" : "border-transparent"
-      } cursor-pointer max-sm:flex-1`}
-      onClick={handleClick}
+    <button
+      type="button"
+      aria-label={`Show ${imgURL.name}`}
+      aria-pressed={selected}
+      className={`min-h-12 cursor-pointer rounded-none border ${
+        selected ? "border-volt" : "border-white/15"
+      } max-sm:flex-1`}
+      onClick={() => {
+        if (!selected) changeBigShoeImage(imgURL.bigShoe);
+      }}
     >
-      <div className='flex justify-center items-center
-      bg-card bg-center bg-cover sm:w-40
-      sm:h-40 rounded-xl max-sm:p-4'>
-        <img src={imgURL.thumbnail} 
-        alt='shoe collection'
-        width={127}
-        height={103}
-        className='object-contain'/>
+      <div className="flex h-20 w-20 items-center justify-center bg-card bg-cover bg-center sm:h-36 sm:w-36">
+        <img
+          src={imgURL.thumbnail}
+          alt=""
+          width={127}
+          height={103}
+          className="h-full w-full object-cover"
+        />
       </div>
-    </div>
+    </button>
   );
 }
 
-export default ShoeCard
+export default ShoeCard;

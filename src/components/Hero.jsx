@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "./Button";
 import { arrowRight } from "../assets/icons";
 import { shoes, statistics } from "../contants";
@@ -7,36 +7,54 @@ import ShoeCard from "./ShoeCard";
 
 const Hero = () => {
   const [bigShoeImg, setBigShoeImg] = useState(bigShoe1);
+  const activeShoe = shoes.find((shoe) => shoe.bigShoe === bigShoeImg) || shoes[0];
 
   return (
     <section
       id="home"
-      className="w-full flex xl:flex-row flex-col justify-center min-h-screen gap-10 max-container"
+      className="flex min-h-screen w-full flex-col justify-center gap-10 max-container xl:flex-row"
+      aria-labelledby="hero-heading"
     >
-      <div className="relative xl:w-2/5 flex flex-col justify-center items-start w-full  max-xl:padding-x pt-28">
-        <p className="text-xl font-montserrat text-coral-red">
-          Our Summer collections
+      <div className="relative flex w-full min-w-0 flex-col items-start justify-center pt-16 max-xl:padding-x xl:w-2/5">
+        <p className="max-w-full font-body text-sm font-bold uppercase tracking-[0.18em] text-volt sm:tracking-[0.32em]">
+          Independent shoehouse / Drop 04
         </p>
 
-        <h1 className="mt-10 font-palanquin text-8xl max-sm:text-[72px] max-sm:leading-[82px] font-bold">
-          <span className="xl:bg-white xl:whitespace-nowrap relative z-10 pr-10">
-            The New Arrival
-          </span>
+        <h1
+          id="hero-heading"
+          className="relative z-10 mt-8 w-full max-w-full font-display text-[clamp(2.35rem,9.4vw,5.125rem)] font-extrabold uppercase leading-[0.9]"
+        >
+          Shoes
           <br />
-          <span className="text-coral-red inline-block mt-3">Nike</span> Shoes
+          for
+          <br />
+          every
+          <br />
+          <span className="text-volt">surface.</span>
         </h1>
-        <p className="font-montserrat text-slate-gray text-lg leading-8 mt-6 mb-14 sm:max-w-sm">
-          Discover stylish Nike arrivals, quality comfort, and innovation for
-          your active life.
+        <p className="mb-12 mt-8 max-w-md font-body text-lg leading-8 text-moss">
+          VELT is a shoe shop, not a logo farm. Running, court, trail, and daily
+          pairs — chosen for fit, not hype.
         </p>
 
-        <Button label="Shop now" iconURL={arrowRight} />
+        <div className="flex flex-wrap gap-4">
+          <Button href="#shop" label="Shop the drop" iconURL={arrowRight} />
+          <Button
+            href="#about-us"
+            label="Fit guide"
+            backgroundColor="bg-transparent"
+            borderColor="border-fog/30"
+            textColor="text-fog"
+          />
+        </div>
 
-        <div className="flex justify-start items-start flex-wrap w-full mt-20 gap-16">
-          {statistics.map((stat, index) => (
-            <div key={index}>
-              <p className="text-4xl font-palanquin font-bold">{stat.value}</p>
-              <p className="leading-7 font-montserrat text-slate-gray">
+        <div className="mt-16 grid w-full grid-cols-3 gap-4 border-t border-white/10 pt-8">
+          {statistics.map((stat) => (
+            <div key={stat.label}>
+              <p className="font-display text-4xl font-bold text-fog max-sm:text-3xl">
+                {stat.value}
+              </p>
+              <p className="mt-1 font-body text-sm uppercase tracking-[0.16em] text-moss">
                 {stat.label}
               </p>
             </div>
@@ -44,25 +62,28 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="relative flex-1 flex justify-center items-center xl:min-h-screen max-xl:py-40 bg-primary bg-hero bg-cover bg-center">
+      <div className="relative flex w-full min-w-0 flex-1 items-center justify-center overflow-hidden bg-hero pb-28 max-xl:py-24 xl:min-h-screen">
+        <p className="absolute left-8 top-10 hidden font-display text-[120px] font-extrabold leading-none text-volt/10 xl:block" aria-hidden="true">
+          VELT
+        </p>
         <img
           src={bigShoeImg}
-          alt="shoe colletion"
+          alt={`${activeShoe.name} featured pair`}
           width={610}
-          height={502}
-          className="object-contain relative z-10"
+          height={458}
+          fetchPriority="high"
+          decoding="async"
+          className="relative z-10 w-[92%] max-w-2xl object-contain mix-blend-lighten"
         />
 
-        <div className="flex sm:gap-6 gap-4 absolute -bottom-[5%] sm:left-[10%] max-sm:px-6">
-          {shoes.map((image, index) => (
-            <div key={index}>
-              <ShoeCard
-                index={index}
-                imgURL={image}
-                changeBigShoeImage={(shoe) => setBigShoeImg(shoe)}
-                bigShoeImg={bigShoeImg}
-              />
-            </div>
+        <div className="absolute bottom-8 left-1/2 z-10 flex w-[calc(100%-1.5rem)] max-w-md -translate-x-1/2 justify-center gap-3 max-sm:px-2 sm:left-[10%] sm:w-auto sm:max-w-none sm:translate-x-0 sm:gap-6">
+          {shoes.map((image) => (
+            <ShoeCard
+              key={image.name}
+              imgURL={image}
+              changeBigShoeImage={(shoe) => setBigShoeImg(shoe)}
+              bigShoeImg={bigShoeImg}
+            />
           ))}
         </div>
       </div>

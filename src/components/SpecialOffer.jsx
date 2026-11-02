@@ -1,45 +1,46 @@
-import React from 'react'
 import Button from "./Button";
 import { arrowRight } from "../assets/icons";
 import { offer } from "../assets/images";
 
 function SpecialOffer() {
   return (
-    <section
-      className="flex justify-between 
-    items-center
-     max-xl:flex-col-reverse gap-10 max-container"
-    >
-      <div className="flex-1">
+    <section className="flex w-full min-w-0 items-center justify-between gap-10 max-container max-xl:flex-col-reverse">
+      <div className="flex-1 overflow-hidden border border-white/10 bg-forest">
         <img
           src={offer}
-          width={733}
-          height={687}
-          className="object-contain w-full"
+          alt="Two people wearing VELT sneakers"
+          width={773}
+          height={580}
+          loading="lazy"
+          decoding="async"
+          className="h-full min-h-[420px] w-full object-cover"
         />
-      </div>{" "}
+      </div>
       <div className="flex flex-1 flex-col">
-        <h2 className="text-4xl font-palanquin font-bold">
-          <span className="text-coral-red">Special </span>
-          Offer
-        </h2>
-        <p className="mt-4 info-text">
-          Embark on a shopping journey that redefines your experience with
-          unbeatable deals. From premier selections to incredible savings, we
-          offer unparalleled value that sets us apart.
+        <p className="font-body text-sm font-bold uppercase tracking-[0.28em] text-volt">
+          Members only
         </p>
+        <h2 className="mt-4 font-display text-4xl font-bold uppercase">
+          First look
+          <span className="text-volt"> drops.</span>
+        </h2>
         <p className="mt-6 info-text">
-          Navigate a realm of possibilities designed to fulfill your unique
-          desires, surpassing the loftiest expectations. Your journey with us is
-          nothing short of exceptional.
+          Join the house list and see new pairs 48 hours before they hit the
+          floor. No recycled “summer collection” dump — small drops, real
+          sizes, gone when they are gone.
+        </p>
+        <p className="mt-4 info-text">
+          Members also get fit notes, restock alerts, and a once-a-season
+          warehouse pair at cost.
         </p>
         <div className="mt-11 flex flex-wrap gap-4">
-          <Button label="Shop now" iconURL={arrowRight} />
+          <Button href="#contact-us" label="Join the list" iconURL={arrowRight} />
           <Button
-            label="Learn more"
-            backgroundColor="bg-white"
-            borderColor="border-slate-gray"
-            textColor="text-slate-gray"
+            href="#drops"
+            label="See past drops"
+            backgroundColor="bg-transparent"
+            borderColor="border-fog/30"
+            textColor="text-fog"
           />
         </div>
       </div>
@@ -47,4 +48,4 @@ function SpecialOffer() {
   );
 }
 
-export default SpecialOffer
+export default SpecialOffer;
