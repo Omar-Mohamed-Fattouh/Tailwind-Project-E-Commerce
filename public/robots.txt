@@ -1,2 +1,10 @@
 User-agent: *
 Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+Sitemap: https://omar-mohamed-fattouh.github.io/Tailwind-Project-E-Commerce/sitemap.xml
