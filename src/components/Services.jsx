@@ -3,7 +3,7 @@ import ServiceCrad from "./ServiceCrad";
 
 function Services() {
   return (
-    <section className="flex flex-wrap justify-center gap-9 max-container" aria-labelledby="services-heading">
+    <section className="grid w-full grid-cols-1 gap-6 max-container sm:grid-cols-2 lg:grid-cols-3" aria-labelledby="services-heading">
       <h2 id="services-heading" className="sr-only">
         Why shop VELT
       </h2>
