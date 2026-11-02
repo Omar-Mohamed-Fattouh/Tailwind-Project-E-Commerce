@@ -7,4 +7,4 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-Sitemap: https://omar-mohamed-fattouh.github.io/Tailwind-Project-E-Commerce/sitemap.xml
+Sitemap: https://tailwind-project-e-commerce.vercel.app/sitemap.xml
